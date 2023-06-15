@@ -3,7 +3,7 @@
 # Tech Stack :
 - PHP (Laravel)
 - REST API
-- MariaDB
+- MySQL
 - Docker
 # To Do
 - ~~Database Migration & Seeding~~
