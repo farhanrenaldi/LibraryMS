@@ -1,10 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\v1;
 
 use App\Http\Requests\StoreMemberRequest;
 use App\Http\Requests\UpdateMemberRequest;
 use App\Models\Member;
+use App\Http\Controllers\Controller;
+use App\Http\Resources\v1\MemberResource;
+use App\Http\Resources\v1\MemberCollection;
 
 class MemberController extends Controller
 {
@@ -13,7 +16,7 @@ class MemberController extends Controller
      */
     public function index()
     {
-        //
+        return new MemberCollection(Member::paginate());
     }
 
     /**
@@ -37,7 +40,7 @@ class MemberController extends Controller
      */
     public function show(Member $member)
     {
-        //
+        return new MemberResource($member);
     }
 
     /**
