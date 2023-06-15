@@ -1,5 +1,5 @@
 # Library API
-Work in progress
+<p1>A library management system for organizing and managing library administrations such as members, books, and borrow orders. (Work in Progress)</p1>
 # Tech Stack :
 - PHP (Laravel)
 - REST API
