@@ -10,6 +10,6 @@ class Member extends Model
     use HasFactory;
     
     public function borrowOrders() {
-        return $this->hasMany(BookOrder::class); 
+        return $this->hasMany(BorrowOrder::class);
     }
 }

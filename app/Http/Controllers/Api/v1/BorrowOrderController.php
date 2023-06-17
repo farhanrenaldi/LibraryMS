@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Api\v1;
 use App\Http\Requests\StoreBorrowOrderRequest;
 use App\Http\Requests\UpdateBorrowOrderRequest;
 use App\Models\BorrowOrder;
-use app\Http\Controllers\Controller;
+use App\Http\Controllers\Controller;
+use App\Http\Resources\v1\BorrowOrderCollection;
+use App\Http\Resources\v1\BorrowOrderResource;
 
 class BorrowOrderController extends Controller
 {
@@ -14,7 +16,7 @@ class BorrowOrderController extends Controller
      */
     public function index()
     {
-        //
+        return new BorrowOrderCollection(BorrowOrder::paginate());
     }
 
     /**
@@ -38,7 +40,7 @@ class BorrowOrderController extends Controller
      */
     public function show(BorrowOrder $borrowOrder)
     {
-        //
+        return new BorrowOrderResource($borrowOrder->loadMissing(['member','book']));
     }
 
     /**

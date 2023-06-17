@@ -9,12 +9,12 @@ class BorrowOrder extends Model
 {
     use HasFactory;
 
-    public function members() {
+    public function member() {
         return $this->belongsTo(Member::class); 
     }
 
-    public function books() {
-        return $this->hasOne(Book::class);
+    public function book() {
+        return $this->belongsTo(Book::class);
     }
 
     public $timestamps = false;

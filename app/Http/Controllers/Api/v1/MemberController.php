@@ -40,6 +40,12 @@ class MemberController extends Controller
      */
     public function show(Member $member)
     {
+        $includeOrders = request()->query('includeOrders');
+
+        if ($includeOrders) {
+            return new MemberResource($member->loadMissing('borrowOrders'));
+        }
+
         return new MemberResource($member);
     }
 

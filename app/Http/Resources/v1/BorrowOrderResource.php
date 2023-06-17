@@ -5,7 +5,7 @@ namespace App\Http\Resources\v1;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class MemberResource extends JsonResource
+class BorrowOrderResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,11 +16,11 @@ class MemberResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'name' => $this->name,
-            'phoneNumber' => $this->phone_number,
-            'email' => $this->email,
-            'address' => $this->address,
-            'borrowOrders' => BorrowOrderResource::collection($this->whenLoaded('borrowOrders'))
+            'member' => new MemberResource($this->whenLoaded('member')),
+            'borrowedBook' => new BookResource($this->whenLoaded('book')),
+            'status' => $this->status,
+            'borrowDate' => $this->borrow_date,
+            'returnDate' => $this->return_date
         ];
     }
 }

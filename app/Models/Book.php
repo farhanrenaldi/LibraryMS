@@ -10,6 +10,6 @@ class Book extends Model
     use HasFactory;
 
     public function borrowOrder() {
-        return $this->belongsTo(Book::class);
+        return $this->hasOne(BookOrder::class);
     }
 }

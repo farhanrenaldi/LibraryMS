@@ -7,8 +7,10 @@
 - Docker
 # To Do
 - ~~Database Migration & Seeding~~
-- API endpoint for adding data
+- ~~API endpoint for GET data~~
+- API endpoint for POST data
 - API endpoint for borrow form
+- Query filtering
 - Request Validation for email and phone number
 - Error handling
 - Unit testing
