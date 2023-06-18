@@ -16,7 +16,8 @@ class BorrowOrderController extends Controller
      */
     public function index()
     {
-        return new BorrowOrderCollection(BorrowOrder::paginate());
+        $orders = BorrowOrder::with(['book','member'])->paginate();
+        return BorrowOrderResource::collection($orders);
     }
 
     /**
@@ -38,9 +39,9 @@ class BorrowOrderController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(BorrowOrder $borrowOrder)
+    public function show(BorrowOrder $order)
     {
-        return new BorrowOrderResource($borrowOrder->loadMissing(['member','book']));
+        return new BorrowOrderResource($order->loadMissing(['member','book']));
     }
 
     /**
